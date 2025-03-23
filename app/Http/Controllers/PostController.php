@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -12,6 +12,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->get();
+
         return view('pages.admin.posts.index', compact('posts'));
     }
 
@@ -54,6 +55,7 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+
         return view('pages.admin.posts.show', compact('post'));
     }
 
@@ -61,6 +63,7 @@ class PostController extends Controller
     public function edit($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+
         return view('pages.admin.posts.edit', compact('post'));
     }
 

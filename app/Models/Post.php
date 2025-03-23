@@ -11,8 +11,8 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'judul', 'tanggal_post', 'tag', 'slug', 
-        'upload_gambar', 'alt_gambar', 'konten'
+        'judul', 'tanggal_post', 'tag', 'slug',
+        'upload_gambar', 'alt_gambar', 'konten',
     ];
 
     // Set slug otomatis saat membuat post

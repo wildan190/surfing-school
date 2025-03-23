@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Gallery;
+use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
@@ -11,6 +11,7 @@ class GalleryController extends Controller
     public function index()
     {
         $galleries = Gallery::all();
+
         return view('pages.admin.galleries.index', compact('galleries'));
     }
 
@@ -46,6 +47,7 @@ class GalleryController extends Controller
     public function show($id)
     {
         $gallery = Gallery::findOrFail($id);
+
         return view('pages.admin.galleries.show', compact('gallery'));
     }
 
@@ -53,6 +55,7 @@ class GalleryController extends Controller
     public function edit($id)
     {
         $gallery = Gallery::findOrFail($id);
+
         return view('pages.admin.galleries.edit', compact('gallery'));
     }
 

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Post;
-use App\Models\Program;
 use App\Models\Gallery;
 use App\Models\PaketEdukasi;
+use App\Models\Post;
+use App\Models\Program;
 use App\Models\Testimoni;
 
 class FrontendController extends Controller

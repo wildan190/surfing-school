@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Testimoni;
+use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
 {
@@ -11,6 +11,7 @@ class TestimoniController extends Controller
     public function index()
     {
         $testimonis = Testimoni::all();
+
         return view('pages.admin.testimoni.index', compact('testimonis'));
     }
 
@@ -39,6 +40,7 @@ class TestimoniController extends Controller
     public function show($id)
     {
         $testimoni = Testimoni::findOrFail($id);
+
         return view('pages.admin.testimoni.show', compact('testimoni'));
     }
 
@@ -46,6 +48,7 @@ class TestimoniController extends Controller
     public function edit($id)
     {
         $testimoni = Testimoni::findOrFail($id);
+
         return view('pages.admin.testimoni.edit', compact('testimoni'));
     }
 

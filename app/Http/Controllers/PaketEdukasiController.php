@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\PaketEdukasi;
+use Illuminate\Http\Request;
 
 class PaketEdukasiController extends Controller
 {
@@ -11,6 +11,7 @@ class PaketEdukasiController extends Controller
     public function index()
     {
         $paketEdukasis = PaketEdukasi::all();
+
         return view('pages.admin.paket-edukasi.index', compact('paketEdukasis'));
     }
 
@@ -39,6 +40,7 @@ class PaketEdukasiController extends Controller
     public function show($id)
     {
         $paketEdukasi = PaketEdukasi::findOrFail($id);
+
         return view('pages.admin.paket-edukasi.show', compact('paketEdukasi'));
     }
 
@@ -46,6 +48,7 @@ class PaketEdukasiController extends Controller
     public function edit($id)
     {
         $paketEdukasi = PaketEdukasi::findOrFail($id);
+
         return view('pages.admin.paket-edukasi.edit', compact('paketEdukasi'));
     }
 

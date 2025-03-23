@@ -66,4 +66,4 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

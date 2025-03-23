@@ -24,7 +24,7 @@ class PaketEdukasi extends Model
         parent::boot();
 
         static::creating(function ($paket) {
-            $paket->kode_paket = 'PE-' . strtoupper(Str::random(6));
+            $paket->kode_paket = 'PE-'.strtoupper(Str::random(6));
         });
     }
 }
