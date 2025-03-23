@@ -11,7 +11,7 @@
     <!-- Navbar -->
     <nav class="bg-white dark:bg-gray-800 shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-xl font-bold">Website Kami</a>
+            <a href="/" class="text-xl font-bold">Ossy Surf School</a>
             <div class="space-x-4">
                 <a href="/" class="hover:text-blue-500">Beranda</a>
                 <a href="/#program" class="hover:text-blue-500">Program</a>
@@ -49,7 +49,7 @@
 
     <!-- Footer -->
     <footer class="py-6 bg-gray-800 text-center text-white">
-        &copy; 2025 Website Kami. All Rights Reserved.
+        &copy; 2025 Ossy Surf School. All Rights Reserved.
     </footer>
 
 </body>

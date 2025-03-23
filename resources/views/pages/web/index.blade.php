@@ -12,17 +12,58 @@
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 
     <!-- Navbar -->
-    <nav class="bg-white dark:bg-gray-800 shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold">Ossy Surf School</a>
-            <div class="space-x-4">
-                <a href="#" class="hover:text-blue-500">Beranda</a>
-                <a href="#program" class="hover:text-blue-500">Program</a>
-                <a href="#gallery" class="hover:text-blue-500">Gallery</a>
-                <a href="#contact" class="hover:text-blue-500">Kontak</a>
-            </div>
+<nav class="bg-white dark:bg-gray-800 shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-xl font-bold">Ossy Surf School</a>
+        
+        <!-- Tombol Hamburger untuk Mobile -->
+        <div class="lg:hidden flex items-center">
+            <button id="hamburger-btn" class="text-gray-600 dark:text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
-    </nav>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex space-x-4">
+            <a href="#" class="hover:text-blue-500">Beranda</a>
+            <a href="#program" class="hover:text-blue-500">Program</a>
+            <a href="#gallery" class="hover:text-blue-500">Gallery</a>
+            <a href="#contact" class="hover:text-blue-500">Kontak</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Sidebar Mobile -->
+<div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden">
+    <div class="flex justify-end p-4">
+        <button id="close-sidebar" class="text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="flex justify-center items-center flex-col space-y-6 mt-10">
+        <a href="#" class="text-white text-2xl hover:text-blue-500">Beranda</a>
+        <a href="#program" class="text-white text-2xl hover:text-blue-500">Program</a>
+        <a href="#gallery" class="text-white text-2xl hover:text-blue-500">Gallery</a>
+        <a href="#contact" class="text-white text-2xl hover:text-blue-500">Kontak</a>
+    </div>
+</div>
+
+<!-- Script untuk Sidebar -->
+<script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sidebar = document.getElementById('sidebar');
+    const closeSidebarBtn = document.getElementById('close-sidebar');
+    
+    hamburgerBtn.addEventListener('click', () => {
+        sidebar.classList.remove('hidden');
+    });
+
+    closeSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.add('hidden');
+    });
+</script>
+
+
     <!-- Hero Section -->
     <section class="relative w-full h-screen min-h-screen flex items-center justify-center bg-cover bg-center"
         style="background-image: url('/assets/img/hero.jpg');">
@@ -122,9 +163,7 @@
                     <i class="fas fa-users text-blue-500"></i> Tentang Kami
                 </h2>
                 <p class="mt-4 text-gray-600 dark:text-gray-300">
-                    Kami adalah lembaga pendidikan yang berkomitmen untuk memberikan pengalaman belajar terbaik bagi
-                    Anda. Dengan kurikulum yang berkualitas, instruktur profesional, dan fasilitas modern, kami siap
-                    membantu Anda mencapai kesuksesan.
+                    Kami adalah Ossy Surf School, sekolah selancar yang berfokus pada pengajaran yang menyenangkan dan aman, dengan instruktur yang berpengalaman dan bersertifikat. Apakah Anda pemula atau sudah mahir, kami memiliki program yang sesuai untuk Anda!
                 </p>
                 <ul class="mt-4 space-y-3 text-gray-600 dark:text-gray-300">
                     <li>
@@ -199,41 +238,89 @@
 
 
     <!-- Program -->
-    <section id="program" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Program Kami</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                @foreach ($programs as $program)
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold">{{ $program->name }}</h3>
-                        <p class="mt-2 text-gray-600 dark:text-gray-300">{{ Str::limit($program->description, 100) }}
-                        </p>
-                        <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Pelajari Lebih
-                            Lanjut</a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+<section id="program" class="py-16 bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Program Kami</h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mt-2">
+            Pilih program terbaik untuk meningkatkan keahlian Anda!
+        </p>
 
-    <!-- Paket Edukasi -->
-    <section id="paket-edukasi" class="py-16 bg-gray-100 dark:bg-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Paket Edukasi</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                @foreach ($paketEdukasi as $paket)
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold">{{ $paket->nama_paket }}</h3>
-                        <p class="text-sm text-gray-500">Kode: {{ $paket->kode_paket }}</p>
-                        <p class="mt-2 text-gray-600 dark:text-gray-300">{{ Str::limit($paket->deskripsi, 100) }}</p>
-                        <p class="mt-2 font-semibold">Durasi: {{ $paket->durasi }} bulan | {{ $paket->pertemuan }}
-                            pertemuan</p>
-                        <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Lihat Detail</a>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            @foreach ($programs as $program)
+                <div class="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    
+                    <!-- Ikon Program -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-md">
+                        <i class="fas fa-graduation-cap text-2xl"></i> <!-- Bisa diganti sesuai kategori program -->
                     </div>
-                @endforeach
-            </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center mt-8">{{ $program->name }}</h3>
+                    <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
+                        {{ Str::limit($program->description, 100) }}
+                    </p>
+
+                    <div class="mt-6 flex justify-center">
+                        <a href="#" class="bg-blue-500 text-white px-6 py-2 rounded-lg text-lg font-medium shadow-md hover:bg-blue-600 transition duration-300">
+                            Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+
+
+<!-- Paket Edukasi -->
+<section id="paket-edukasi" class="py-16 bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Paket Edukasi</h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mt-2">
+            Pilih paket edukasi terbaik sesuai kebutuhan Anda!
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            @foreach ($paketEdukasi as $paket)
+                <div class="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    
+                    <!-- Ikon Paket -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-md">
+                        <i class="fas fa-book-open text-2xl"></i> <!-- Bisa diganti sesuai kategori paket -->
+                    </div>
+
+                    <!-- Nama Paket -->
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center mt-8">{{ $paket->nama_paket }}</h3>
+                    <p class="text-center text-gray-500 dark:text-gray-400">Kode: {{ $paket->kode_paket }}</p>
+
+                    <!-- Harga -->
+                    <p class="text-3xl font-bold text-blue-500 text-center mt-4">Rp {{ number_format($paket->harga, 0, ',', '.') }}</p>
+
+                    <!-- Durasi dan Pertemuan -->
+                    <div class="mt-4 flex justify-center items-center text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-clock mr-2"></i> {{ $paket->durasi }} bulan
+                        <span class="mx-2">|</span>
+                        <i class="fas fa-chalkboard-teacher mr-2"></i> {{ $paket->pertemuan }} pertemuan
+                    </div>
+
+                    <!-- Deskripsi -->
+                    <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
+                        {{ Str::limit($paket->deskripsi, 100) }}
+                    </p>
+
+                    <!-- Tombol Booking -->
+                    <div class="mt-6 flex justify-center">
+                        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20mendaftar%20untuk%20paket%20{{ urlencode($paket->nama_paket) }}" 
+                            target="_blank"
+                            class="bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-green-600 transition duration-300">
+                            <i class="fab fa-whatsapp mr-2"></i> Booking Sekarang
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 
 
     <!-- Berita -->
@@ -278,37 +365,48 @@
         </div>
     </section>
 
-    <!-- Testimoni -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Apa Kata Mereka?</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                @foreach ($testimonis as $testimoni)
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                        <p class="text-gray-600 dark:text-gray-300 italic">"{{ $testimoni->deskripsi }}"</p>
+   <!-- Testimoni -->
+<section class="py-16 bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Apa Kata Mereka?</h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mt-4">Dengarkan langsung pengalaman dari para peserta kami!</p>
 
-                        <!-- ⭐ Rating -->
-                        <div class="mt-3 text-yellow-500">
-                            @for ($i = 1; $i <= 5; $i++)
-                                @if ($i <= $testimoni->rating)
-                                    <span class="text-xl">★</span> {{-- Bintang Penuh --}}
-                                @else
-                                    <span class="text-xl text-gray-400">☆</span> {{-- Bintang Kosong --}}
-                                @endif
-                            @endfor
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            @foreach ($testimonis as $testimoni)
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <!-- Testimonial Text -->
+                    <p class="text-gray-600 dark:text-gray-300 italic text-lg">
+                        "{{ $testimoni->deskripsi }}"
+                    </p>
+
+                    <!-- ⭐ Rating -->
+                    <div class="mt-4 flex justify-center items-center text-yellow-500">
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $testimoni->rating)
+                                <span class="text-2xl">★</span> {{-- Bintang Penuh --}}
+                            @else
+                                <span class="text-2xl text-gray-400">☆</span> {{-- Bintang Kosong --}}
+                            @endif
+                        @endfor
+                    </div>
+
+                    <!-- Person Info -->
+                    <div class="mt-6 flex justify-start items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-700 overflow-hidden">
+                            <!-- Foto Pengguna -->
+                            <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar" class="w-full h-full object-cover">
                         </div>
-
-                        <div class="mt-4 flex items-center">
-                            <div class="ml-3">
-                                <p class="font-semibold">{{ $testimoni->nama }}</p>
-                                <p class="text-sm text-gray-500">{{ $testimoni->asal_kota }}</p>
-                            </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-gray-900 dark:text-white">{{ $testimoni->nama }}</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ $testimoni->asal_kota }}</p>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+
 
 
     <!-- Contact Us -->
