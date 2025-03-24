@@ -29,9 +29,19 @@ class PaketEdukasiController extends Controller
             'durasi' => 'required|integer',
             'pertemuan' => 'required|integer',
             'deskripsi' => 'nullable|string',
+            'harga' => 'required|numeric|min:0',
+            'upload_gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        PaketEdukasi::create($request->all());
+        $data = $request->all();
+
+        // Jika ada gambar yang diupload
+        if ($request->hasFile('upload_gambar')) {
+            $imagePath = $request->file('upload_gambar')->store('paket_edukasi', 'public');
+            $data['upload_gambar'] = $imagePath;
+        }
+
+        PaketEdukasi::create($data);
 
         return redirect('/admin/paket-edukasi')->with('success', 'Paket edukasi berhasil ditambahkan!');
     }
@@ -60,10 +70,20 @@ class PaketEdukasiController extends Controller
             'durasi' => 'required|integer',
             'pertemuan' => 'required|integer',
             'deskripsi' => 'nullable|string',
+            'harga' => 'required|numeric|min:0',
+            'upload_gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        $data = $request->all();
+
+        // Jika ada gambar yang diupload
+        if ($request->hasFile('upload_gambar')) {
+            $imagePath = $request->file('upload_gambar')->store('paket_edukasi', 'public');
+            $data['upload_gambar'] = $imagePath;
+        }
+
         $paketEdukasi = PaketEdukasi::findOrFail($id);
-        $paketEdukasi->update($request->all());
+        $paketEdukasi->update($data);
 
         return redirect('/admin/paket-edukasi')->with('success', 'Paket edukasi berhasil diperbarui!');
     }

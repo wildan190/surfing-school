@@ -286,48 +286,54 @@
             </p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                @foreach ($paketEdukasi as $paket)
-                    <div
-                        class="relative bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+    @foreach ($paketEdukasi as $paket)
+        <div class="relative bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
 
-                        <!-- Ikon Paket -->
-                        <div
-                            class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-md">
-                            <i class="fas fa-book-open text-2xl"></i> <!-- Bisa diganti sesuai kategori paket -->
-                        </div>
+            <!-- Gambar Paket -->
+            @if (!empty($paket->upload_gambar))
+                <img src="{{ Storage::url($paket->upload_gambar) }}" 
+                    alt="Gambar {{ $paket->nama_paket }}" 
+                    class="w-full h-40 object-cover rounded-lg shadow-md mb-4">
+            @else
+                <div class="w-full h-40 bg-gray-300 dark:bg-gray-600 flex items-center justify-center rounded-lg mb-4">
+                    <span class="text-gray-500 dark:text-gray-400">Tidak ada gambar</span>
+                </div>
+            @endif
 
-                        <!-- Nama Paket -->
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center mt-8">
-                            {{ $paket->nama_paket }}</h3>
-                        <p class="text-center text-gray-500 dark:text-gray-400">Kode: {{ $paket->kode_paket }}</p>
+            <!-- Nama Paket -->
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center">
+                {{ $paket->nama_paket }}
+            </h3>
+            <p class="text-center text-gray-500 dark:text-gray-400">Kode: {{ $paket->kode_paket }}</p>
 
-                        <!-- Harga -->
-                        <p class="text-3xl font-bold text-blue-500 text-center mt-4">Rp
-                            {{ number_format($paket->harga, 0, ',', '.') }}</p>
+            <!-- Harga -->
+            <p class="text-3xl font-bold text-blue-500 text-center mt-4">Rp
+                {{ number_format($paket->harga, 0, ',', '.') }}</p>
 
-                        <!-- Durasi dan Pertemuan -->
-                        <div class="mt-4 flex justify-center items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-clock mr-2"></i> {{ $paket->durasi }} bulan
-                            <span class="mx-2">|</span>
-                            <i class="fas fa-chalkboard-teacher mr-2"></i> {{ $paket->pertemuan }} pertemuan
-                        </div>
-
-                        <!-- Deskripsi -->
-                        <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
-                            {{ Str::limit($paket->deskripsi, 100) }}
-                        </p>
-
-                        <!-- Tombol Booking -->
-                        <div class="mt-6 flex justify-center">
-                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20mendaftar%20untuk%20paket%20{{ urlencode($paket->nama_paket) }}"
-                                target="_blank"
-                                class="bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-green-600 transition duration-300">
-                                <i class="fab fa-whatsapp mr-2"></i> Booking Sekarang
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
+            <!-- Durasi dan Pertemuan -->
+            <div class="mt-4 flex justify-center items-center text-gray-700 dark:text-gray-300">
+                <i class="fas fa-clock mr-2"></i> {{ $paket->durasi }} Jam
+                <span class="mx-2">|</span>
+                <i class="fas fa-chalkboard-teacher mr-2"></i> {{ $paket->pertemuan }} pertemuan
             </div>
+
+            <!-- Deskripsi -->
+            <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
+                {{ Str::limit($paket->deskripsi, 100) }}
+            </p>
+
+            <!-- Tombol Booking -->
+            <div class="mt-6 flex justify-center">
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20mendaftar%20untuk%20paket%20{{ urlencode($paket->nama_paket) }}"
+                    target="_blank"
+                    class="bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-green-600 transition duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i> Booking Sekarang
+                </a>
+            </div>
+        </div>
+    @endforeach
+</div>
+
         </div>
     </section>
 

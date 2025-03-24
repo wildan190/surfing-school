@@ -16,6 +16,8 @@ class PaketEdukasi extends Model
         'durasi',
         'pertemuan',
         'deskripsi',
+        'upload_gambar',
+        'harga',
     ];
 
     // Auto-generate kode_paket saat membuat paket baru
@@ -24,7 +26,7 @@ class PaketEdukasi extends Model
         parent::boot();
 
         static::creating(function ($paket) {
-            $paket->kode_paket = 'PE-'.strtoupper(Str::random(6));
+            $paket->kode_paket = 'PE-' . strtoupper(Str::random(6));
         });
     }
 }
