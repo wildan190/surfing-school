@@ -31,7 +31,7 @@
     </section>
 
     <!-- Content -->
-    <section class="py-10">
+    <section class="py-10 bg-gray-100 dark:bg-gray-900">
         <div class="container mx-auto px-6 lg:px-20">
             <article class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
                 <img src="{{ Storage::url($post->upload_gambar) }}" alt="{{ $post->alt_gambar }}" class="w-full h-96 object-cover rounded-lg mb-6">

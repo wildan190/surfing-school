@@ -12,56 +12,56 @@
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 
     <!-- Navbar -->
-<nav class="bg-white dark:bg-gray-800 shadow-md">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-xl font-bold">Ossy Surf School</a>
-        
-        <!-- Tombol Hamburger untuk Mobile -->
-        <div class="lg:hidden flex items-center">
-            <button id="hamburger-btn" class="text-gray-600 dark:text-white focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+    <nav class="bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Ossy Surf School</a>
+
+            <!-- Tombol Hamburger untuk Mobile -->
+            <div class="lg:hidden flex items-center">
+                <button id="hamburger-btn" class="text-gray-600 dark:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-4">
+                <a href="#" class="hover:text-blue-500">Beranda</a>
+                <a href="#program" class="hover:text-blue-500">Program</a>
+                <a href="#gallery" class="hover:text-blue-500">Gallery</a>
+                <a href="#contact" class="hover:text-blue-500">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Mobile -->
+    <div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden">
+        <div class="flex justify-end p-4">
+            <button id="close-sidebar" class="text-white text-2xl">
+                <i class="fas fa-times"></i>
             </button>
         </div>
-
-        <!-- Desktop Menu -->
-        <div class="hidden lg:flex space-x-4">
-            <a href="#" class="hover:text-blue-500">Beranda</a>
-            <a href="#program" class="hover:text-blue-500">Program</a>
-            <a href="#gallery" class="hover:text-blue-500">Gallery</a>
-            <a href="#contact" class="hover:text-blue-500">Kontak</a>
+        <div class="flex justify-center items-center flex-col space-y-6 mt-10">
+            <a href="#" class="text-white text-2xl hover:text-blue-500">Beranda</a>
+            <a href="#program" class="text-white text-2xl hover:text-blue-500">Program</a>
+            <a href="#gallery" class="text-white text-2xl hover:text-blue-500">Gallery</a>
+            <a href="#contact" class="text-white text-2xl hover:text-blue-500">Kontak</a>
         </div>
     </div>
-</nav>
 
-<!-- Sidebar Mobile -->
-<div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden">
-    <div class="flex justify-end p-4">
-        <button id="close-sidebar" class="text-white text-2xl">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div class="flex justify-center items-center flex-col space-y-6 mt-10">
-        <a href="#" class="text-white text-2xl hover:text-blue-500">Beranda</a>
-        <a href="#program" class="text-white text-2xl hover:text-blue-500">Program</a>
-        <a href="#gallery" class="text-white text-2xl hover:text-blue-500">Gallery</a>
-        <a href="#contact" class="text-white text-2xl hover:text-blue-500">Kontak</a>
-    </div>
-</div>
+    <!-- Script untuk Sidebar -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebarBtn = document.getElementById('close-sidebar');
 
-<!-- Script untuk Sidebar -->
-<script>
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const sidebar = document.getElementById('sidebar');
-    const closeSidebarBtn = document.getElementById('close-sidebar');
-    
-    hamburgerBtn.addEventListener('click', () => {
-        sidebar.classList.remove('hidden');
-    });
+        hamburgerBtn.addEventListener('click', () => {
+            sidebar.classList.remove('hidden');
+        });
 
-    closeSidebarBtn.addEventListener('click', () => {
-        sidebar.classList.add('hidden');
-    });
-</script>
+        closeSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.add('hidden');
+        });
+    </script>
 
 
     <!-- Hero Section -->
@@ -163,7 +163,9 @@
                     <i class="fas fa-users text-blue-500"></i> Tentang Kami
                 </h2>
                 <p class="mt-4 text-gray-600 dark:text-gray-300">
-                    Kami adalah Ossy Surf School, sekolah selancar yang berfokus pada pengajaran yang menyenangkan dan aman, dengan instruktur yang berpengalaman dan bersertifikat. Apakah Anda pemula atau sudah mahir, kami memiliki program yang sesuai untuk Anda!
+                    Kami adalah Ossy Surf School, sekolah selancar yang berfokus pada pengajaran yang menyenangkan dan
+                    aman, dengan instruktur yang berpengalaman dan bersertifikat. Apakah Anda pemula atau sudah mahir,
+                    kami memiliki program yang sesuai untuk Anda!
                 </p>
                 <ul class="mt-4 space-y-3 text-gray-600 dark:text-gray-300">
                     <li>
@@ -193,7 +195,7 @@
     </section>
 
     <!-- Keunggulan -->
-    <section class="py-16 bg-gray-100 dark:bg-gray-900">
+    <section class="py-16 bg-gray-100 dark:bg-gray-800">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100">Keunggulan Kami</h2>
             <p class="text-center text-gray-600 dark:text-gray-300 mt-2">Mengapa memilih kami? Berikut adalah keunggulan
@@ -238,179 +240,220 @@
 
 
     <!-- Program -->
-<section id="program" class="py-16 bg-gray-100 dark:bg-gray-900">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Program Kami</h2>
-        <p class="text-center text-gray-600 dark:text-gray-300 mt-2">
-            Pilih program terbaik untuk meningkatkan keahlian Anda!
-        </p>
+    <section id="program" class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Program Kami</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mt-2">
+                Pilih program terbaik untuk meningkatkan keahlian Anda!
+            </p>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            @foreach ($programs as $program)
-                <div class="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
-                    
-                    <!-- Ikon Program -->
-                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-md">
-                        <i class="fas fa-graduation-cap text-2xl"></i> <!-- Bisa diganti sesuai kategori program -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                @foreach ($programs as $program)
+                    <div
+                        class="relative bg-gray-200 dark:bg-gray-700 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+
+                        <!-- Ikon Program -->
+                        <div
+                            class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-md">
+                            <i class="fas fa-graduation-cap text-2xl"></i> <!-- Bisa diganti sesuai kategori program -->
+                        </div>
+
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center mt-8">
+                            {{ $program->name }}</h3>
+                        <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
+                            {{ Str::limit($program->description, 100) }}
+                        </p>
+
+                        <div class="mt-6 flex justify-center">
+                            <a href="#"
+                                class="bg-blue-500 text-white px-6 py-2 rounded-lg text-lg font-medium shadow-md hover:bg-blue-600 transition duration-300">
+                                Pelajari Lebih Lanjut
+                            </a>
+                        </div>
                     </div>
-
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center mt-8">{{ $program->name }}</h3>
-                    <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
-                        {{ Str::limit($program->description, 100) }}
-                    </p>
-
-                    <div class="mt-6 flex justify-center">
-                        <a href="#" class="bg-blue-500 text-white px-6 py-2 rounded-lg text-lg font-medium shadow-md hover:bg-blue-600 transition duration-300">
-                            Pelajari Lebih Lanjut
-                        </a>
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- Paket Edukasi -->
-<section id="paket-edukasi" class="py-16 bg-gray-100 dark:bg-gray-900">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Paket Edukasi</h2>
-        <p class="text-center text-gray-600 dark:text-gray-300 mt-2">
-            Pilih paket edukasi terbaik sesuai kebutuhan Anda!
-        </p>
+    <!-- Paket Edukasi -->
+    <section id="paket-edukasi" class="py-16 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Paket Edukasi</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mt-2">
+                Pilih paket edukasi terbaik sesuai kebutuhan Anda!
+            </p>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            @foreach ($paketEdukasi as $paket)
-                <div class="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
-                    
-                    <!-- Ikon Paket -->
-                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-md">
-                        <i class="fas fa-book-open text-2xl"></i> <!-- Bisa diganti sesuai kategori paket -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                @foreach ($paketEdukasi as $paket)
+                    <div
+                        class="relative bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+
+                        <!-- Ikon Paket -->
+                        <div
+                            class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-md">
+                            <i class="fas fa-book-open text-2xl"></i> <!-- Bisa diganti sesuai kategori paket -->
+                        </div>
+
+                        <!-- Nama Paket -->
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center mt-8">
+                            {{ $paket->nama_paket }}</h3>
+                        <p class="text-center text-gray-500 dark:text-gray-400">Kode: {{ $paket->kode_paket }}</p>
+
+                        <!-- Harga -->
+                        <p class="text-3xl font-bold text-blue-500 text-center mt-4">Rp
+                            {{ number_format($paket->harga, 0, ',', '.') }}</p>
+
+                        <!-- Durasi dan Pertemuan -->
+                        <div class="mt-4 flex justify-center items-center text-gray-700 dark:text-gray-300">
+                            <i class="fas fa-clock mr-2"></i> {{ $paket->durasi }} bulan
+                            <span class="mx-2">|</span>
+                            <i class="fas fa-chalkboard-teacher mr-2"></i> {{ $paket->pertemuan }} pertemuan
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
+                            {{ Str::limit($paket->deskripsi, 100) }}
+                        </p>
+
+                        <!-- Tombol Booking -->
+                        <div class="mt-6 flex justify-center">
+                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20mendaftar%20untuk%20paket%20{{ urlencode($paket->nama_paket) }}"
+                                target="_blank"
+                                class="bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-whatsapp mr-2"></i> Booking Sekarang
+                            </a>
+                        </div>
                     </div>
-
-                    <!-- Nama Paket -->
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white text-center mt-8">{{ $paket->nama_paket }}</h3>
-                    <p class="text-center text-gray-500 dark:text-gray-400">Kode: {{ $paket->kode_paket }}</p>
-
-                    <!-- Harga -->
-                    <p class="text-3xl font-bold text-blue-500 text-center mt-4">Rp {{ number_format($paket->harga, 0, ',', '.') }}</p>
-
-                    <!-- Durasi dan Pertemuan -->
-                    <div class="mt-4 flex justify-center items-center text-gray-700 dark:text-gray-300">
-                        <i class="fas fa-clock mr-2"></i> {{ $paket->durasi }} bulan
-                        <span class="mx-2">|</span>
-                        <i class="fas fa-chalkboard-teacher mr-2"></i> {{ $paket->pertemuan }} pertemuan
-                    </div>
-
-                    <!-- Deskripsi -->
-                    <p class="mt-3 text-gray-600 dark:text-gray-300 text-center">
-                        {{ Str::limit($paket->deskripsi, 100) }}
-                    </p>
-
-                    <!-- Tombol Booking -->
-                    <div class="mt-6 flex justify-center">
-                        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20mendaftar%20untuk%20paket%20{{ urlencode($paket->nama_paket) }}" 
-                            target="_blank"
-                            class="bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-green-600 transition duration-300">
-                            <i class="fab fa-whatsapp mr-2"></i> Booking Sekarang
-                        </a>
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 
     <!-- Berita -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Berita Terbaru</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-8">
-                @foreach ($posts as $post)
-                    <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
-                        <img src="{{ Storage::url($post->upload_gambar) }}" alt="{{ $post->alt_gambar }}"
-                            class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold">{{ $post->judul }}</h3>
-                            <p class="mt-2 text-gray-600 dark:text-gray-300">{{ Str::limit($post->konten, 100) }}</p>
-                            <a href="{{ route('post', ['tag' => urlencode($post->tag)]) }}"
-                                class="mt-4 inline-block text-blue-500 hover:text-blue-700">
-                                Baca Selengkapnya
-                            </a>
-
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery" class="py-16 bg-gray-100 dark:bg-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Gallery</h2>
-            <div class="grid md:grid-cols-3 gap-6 mt-8">
-                @foreach ($galleries as $gallery)
-                    <div class="relative">
-                        <img src="{{ Storage::url($gallery->upload_gambar) }}"
-                            class="w-full h-48 object-cover rounded-lg shadow-md">
-                        <div
-                            class="absolute inset-0 bg-black/40 flex items-center justify-center text-white font-bold text-lg opacity-0 hover:opacity-100 transition">
-                            Lihat</div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-   <!-- Testimoni -->
-<section class="py-16 bg-gray-100 dark:bg-gray-900">
+    <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Apa Kata Mereka?</h2>
-        <p class="text-center text-gray-600 dark:text-gray-300 mt-4">Dengarkan langsung pengalaman dari para peserta kami!</p>
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white">Berita Terbaru</h2>
+        
+        <!-- Deskripsi Section -->
+        <p class="text-lg text-center text-gray-600 dark:text-gray-300 mt-4">
+            Temukan berita terbaru seputar program, kegiatan, dan informasi penting lainnya yang dapat membantu Anda tetap update dengan kami.
+        </p>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            @foreach ($testimonis as $testimoni)
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <!-- Testimonial Text -->
-                    <p class="text-gray-600 dark:text-gray-300 italic text-lg">
-                        "{{ $testimoni->deskripsi }}"
-                    </p>
-
-                    <!-- ⭐ Rating -->
-                    <div class="mt-4 flex justify-center items-center text-yellow-500">
-                        @for ($i = 1; $i <= 5; $i++)
-                            @if ($i <= $testimoni->rating)
-                                <span class="text-2xl">★</span> {{-- Bintang Penuh --}}
-                            @else
-                                <span class="text-2xl text-gray-400">☆</span> {{-- Bintang Kosong --}}
-                            @endif
-                        @endfor
-                    </div>
-
-                    <!-- Person Info -->
-                    <div class="mt-6 flex justify-start items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-700 overflow-hidden">
-                            <!-- Foto Pengguna -->
-                            <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar" class="w-full h-full object-cover">
-                        </div>
-                        <div class="ml-4">
-                            <p class="font-semibold text-gray-900 dark:text-white">{{ $testimoni->nama }}</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ $testimoni->asal_kota }}</p>
-                        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            @foreach ($posts as $post)
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <img src="{{ Storage::url($post->upload_gambar) }}" alt="{{ $post->alt_gambar }}"
+                        class="w-full h-56 object-cover transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $post->judul }}</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300">{{ Str::limit($post->konten, 100) }}</p>
+                        <a href="{{ route('post', ['tag' => urlencode($post->tag)]) }}"
+                            class="mt-4 inline-block text-blue-500 hover:text-blue-700 text-lg font-medium transition-all duration-300">
+                            Baca Selengkapnya
+                        </a>
                     </div>
                 </div>
             @endforeach
         </div>
+
+        <!-- Tombol Lihat Semua Berita -->
+        <div class="text-center mt-8">
+            <a href="/berita" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-blue-600 transition duration-300">
+                Lihat Semua Berita
+            </a>
+        </div>
     </div>
 </section>
+
+
+<!-- Gallery -->
+<section id="gallery" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white">Galeri Kami</h2>
+        <p class="text-lg text-center text-gray-600 dark:text-gray-300 mt-4">Nikmati koleksi gambar terbaik kami yang memperlihatkan berbagai kegiatan dan suasana yang ada di Ossy Surf School.</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            @foreach ($galleries as $gallery)
+                <div class="relative group">
+                    <img src="{{ Storage::url($gallery->upload_gambar) }}"
+                        class="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105">
+                    
+                    <!-- Overlay dengan teks saat hover -->
+                    <div
+                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-semibold text-xl transition-opacity duration-300">
+                        Lihat Lebih Detail
+                    </div>
+                    
+                    <!-- Additional Info Card -->
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent rounded-b-lg text-white font-medium">
+                        {{ $gallery->judul }}
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <!-- Tombol Lihat Semua Gambar -->
+        <div class="text-center mt-8">
+            <a href="#"
+                class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-blue-600 transition duration-300">
+                Lihat Semua Galeri
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Testimoni -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Apa Kata Mereka?</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mt-4">Dengarkan langsung pengalaman dari para
+                peserta kami!</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                @foreach ($testimonis as $testimoni)
+                    <div
+                        class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+                        <!-- Testimonial Text -->
+                        <p class="text-gray-600 dark:text-gray-300 italic text-lg">
+                            "{{ $testimoni->deskripsi }}"
+                        </p>
+
+                        <!-- ⭐ Rating -->
+                        <div class="mt-4 flex justify-center items-center text-yellow-500">
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <= $testimoni->rating)
+                                    <span class="text-2xl">★</span> {{-- Bintang Penuh --}}
+                                @else
+                                    <span class="text-2xl text-gray-400">☆</span> {{-- Bintang Kosong --}}
+                                @endif
+                            @endfor
+                        </div>
+
+                        <!-- Person Info -->
+                        <div class="mt-6 flex justify-start items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-700 overflow-hidden">
+                                <!-- Foto Pengguna -->
+                                <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-gray-900 dark:text-white">{{ $testimoni->nama }}</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">{{ $testimoni->asal_kota }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
 
 
     <!-- Contact Us -->
-    <section id="contact" class="py-16 bg-white dark:bg-gray-900">
+    <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-800">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
@@ -423,7 +466,7 @@
             <div class="flex flex-col md:flex-row items-stretch justify-center gap-12">
                 <!-- Form Kontak (Kiri) -->
                 <div
-                    class="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col justify-center h-full">
+                    class="w-full md:w-1/2 bg-gray-200 dark:bg-gray-700 p-8 rounded-lg shadow-lg flex flex-col justify-center h-full">
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Kirim Pesan</h3>
 
                     <form action="#" method="POST" class="space-y-4 flex-1">
@@ -457,7 +500,7 @@
 
                 <!-- Informasi Kontak (Kanan) -->
                 <div
-                    class="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col justify-center h-full">
+                    class="w-full md:w-1/2 bg-gray-300 dark:bg-gray-600 p-8 rounded-lg shadow-lg flex flex-col justify-center h-full">
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Kontak Kami</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4">Jangan ragu untuk menghubungi kami, tim kami siap
                         membantu Anda!</p>
@@ -484,12 +527,43 @@
         </div>
     </section>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6281234567890" target="_blank"
-        class="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 hover:bg-green-600 transition duration-300">
-        <i class="fab fa-whatsapp text-2xl"></i>
-        <span class="text-lg font-semibold">Chat Kami</span>
-    </a>
+    <!-- Floating Scroll to Top Button -->
+<button id="scrollToTop" 
+    class="fixed bottom-20 right-6 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 opacity-70 pointer-events-none">
+    <i class="fas fa-arrow-up text-2xl"></i>
+</button>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6281234567890" target="_blank"
+    class="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 hover:bg-green-600 transition duration-300">
+    <i class="fab fa-whatsapp text-2xl"></i>
+    <span class="text-lg font-semibold">Chat Kami</span>
+</a>
+
+<script>
+    // Mengambil tombol
+    const scrollToTopButton = document.getElementById('scrollToTop');
+    
+    // Event scroll untuk menampilkan dan menyembunyikan tombol
+    window.onscroll = function() {
+        // Cek apakah sudah di scroll ke bawah lebih dari 300px
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollToTopButton.classList.remove("opacity-0", "pointer-events-none"); // tampilkan tombol
+            scrollToTopButton.classList.add("opacity-70", "pointer-events-auto"); // Opacity 0.7 untuk transparansi
+        } else {
+            scrollToTopButton.classList.remove("opacity-70", "pointer-events-auto"); // sembunyikan tombol
+            scrollToTopButton.classList.add("opacity-0", "pointer-events-none");
+        }
+    };
+    
+    // Event klik untuk scroll ke atas
+    scrollToTopButton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // scroll dengan efek smooth
+        });
+    };
+</script>
 
 
     <!-- Footer -->
